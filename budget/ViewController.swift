@@ -7,26 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet var addButton: UIBarButtonItem!
-    @IBOutlet weak var categoryTableView: UITableView!
+    @IBOutlet var categoryTableView: UITableView!
     
-    var names = [String]()
+    var expenseCategories = [NSManagedObject]()
     
     override func viewDidLoad() {
-        names.append("lalala")
-        names.append("testtest")
-        names.append("rrrrrr")
-        
-        print (">>>>view did load>>>>%d", names.count)
-                
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         title = "\"The List\""
         categoryTableView.registerClass(UITableViewCell.self,
                                 forCellReuseIdentifier: "Cell")
+        categoryTableView.reloadData()
+        print ("reloaded")
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,10 +44,8 @@ class ViewController: UIViewController, UITableViewDataSource {
                                        style: .Default,
                                        handler: { (action:UIAlertAction) -> Void in
                                         
-                                        print(">>>>count>>>%d",self.names.count)
                                         let textField = alert.textFields!.first
-                                        print(">>>>save click>>>%s",textField!.text!)
-                                        self.names.append(textField!.text!)
+                                        self.saveName(textField!.text!)
                                         self.categoryTableView.reloadData()
         })
         
@@ -74,9 +69,38 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     
+    
+    func saveName(name: String) {
+        //1
+        let appDelegate =
+            UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let entity =  NSEntityDescription.entityForName("ExpenseCategory",
+                                                        inManagedObjectContext:managedContext)
+        
+        let expenseCategory = NSManagedObject(entity: entity!,
+                                     insertIntoManagedObjectContext: managedContext)
+        
+        //3
+        expenseCategory.setValue(name, forKey: "name")
+        
+        //4
+        do {
+            try managedContext.save()
+            //5
+            expenseCategories.append(expenseCategory)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    
     func tableView(tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return expenseCategories.count
     }
     
     func tableView(tableView: UITableView,
@@ -86,9 +110,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         let cell =
             tableView.dequeueReusableCellWithIdentifier("Cell")
         
+        let category = expenseCategories[indexPath.row]
+        
         print("table view reload")
         
-        cell!.textLabel!.text = names[indexPath.row]
+        cell!.textLabel!.text = category.valueForKey("name") as? String
         
         return cell!
     }
