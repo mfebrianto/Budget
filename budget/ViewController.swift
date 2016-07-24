@@ -24,6 +24,11 @@ class ViewController: UIViewController, UITableViewDataSource {
                                 forCellReuseIdentifier: "Cell")
         categoryTableView.reloadData()
         print ("reloaded")
+        
+        
+        let ecs = ExpenseCategoryService()
+        ecs.getAll()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,7 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         let expenseCategory = NSManagedObject(entity: entity!,
                                      insertIntoManagedObjectContext: managedContext)
-        
+                
         //3
         expenseCategory.setValue(name, forKey: "name")
         
