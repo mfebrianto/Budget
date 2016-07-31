@@ -105,14 +105,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         let managedContext = appDelegate.managedObjectContext
         
         //2
-        let entity =  NSEntityDescription.entityForName("ExpenseCategory",
+        let entityDescription =  NSEntityDescription.entityForName("ExpenseCategory",
                                                         inManagedObjectContext:managedContext)
+
+        let expenseCategory = ExpenseCategory(entity: entityDescription!, insertIntoManagedObjectContext: managedContext)
         
-        let expenseCategory = NSManagedObject(entity: entity!,
-                                     insertIntoManagedObjectContext: managedContext)
-                
-        //3
-        expenseCategory.setValue(name, forKey: "name")
+        expenseCategory.name = name
+        
         
         //4
         do {
