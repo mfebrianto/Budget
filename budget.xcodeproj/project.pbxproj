@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B00A12EE1013FBCC1D6153C /* ExpenseCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B00A6E927A9076CED7925DA /* ExpenseCategoryService.swift */; };
 		76DB98A41D9E4CEA2078727E /* Pods_budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393CE7615199603D236C719 /* Pods_budget.framework */; };
+		8771409C1D4E04110060BDAB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8771409B1D4E04110060BDAB /* SettingsViewController.swift */; };
 		8791FD521D3CD10100A8FE96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8791FD511D3CD10100A8FE96 /* AppDelegate.swift */; };
 		8791FD541D3CD10100A8FE96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8791FD531D3CD10100A8FE96 /* ViewController.swift */; };
 		8791FD571D3CD10100A8FE96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8791FD551D3CD10100A8FE96 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		1B00A6E927A9076CED7925DA /* ExpenseCategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryService.swift; sourceTree = "<group>"; };
+		8771409B1D4E04110060BDAB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8791FD4E1D3CD10000A8FE96 /* budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8791FD511D3CD10100A8FE96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8791FD531D3CD10100A8FE96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				8797A6491D44A98C00714E32 /* models */,
 				8791FD511D3CD10100A8FE96 /* AppDelegate.swift */,
 				8791FD531D3CD10100A8FE96 /* ViewController.swift */,
+				8771409B1D4E04110060BDAB /* SettingsViewController.swift */,
 				8791FD551D3CD10100A8FE96 /* Main.storyboard */,
 				8791FD5B1D3CD10100A8FE96 /* Assets.xcassets */,
 				8791FD5D1D3CD10100A8FE96 /* LaunchScreen.storyboard */,
@@ -302,6 +305,7 @@
 			files = (
 				8791FD541D3CD10100A8FE96 /* ViewController.swift in Sources */,
 				8791FD5A1D3CD10100A8FE96 /* budget.xcdatamodeld in Sources */,
+				8771409C1D4E04110060BDAB /* SettingsViewController.swift in Sources */,
 				8797A6511D44A9E800714E32 /* ExpenseCategory.swift in Sources */,
 				8797A6501D44A9E800714E32 /* ExpenseCategory+CoreDataProperties.swift in Sources */,
 				8791FD521D3CD10100A8FE96 /* AppDelegate.swift in Sources */,

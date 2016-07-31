@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var categoryTableView: UITableView!
+    @IBOutlet var settingsButton: UIButton!
     
     var expenseCategories = [NSManagedObject]()
     
@@ -59,6 +60,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
 
+    @IBAction func clickSettingsButton(sender: UIButton) {
+        self.performSegueWithIdentifier("goToSettingsPage", sender: self)
+    }
+    
     @IBAction func clickAddButton(sender: UIBarButtonItem) {
         
         print(">>>>clickAddButton")
